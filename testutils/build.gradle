@@ -1,0 +1,37 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+android {
+    compileSdkVersion versions.android.compile
+    defaultConfig {
+        minSdkVersion versions.android.minSdk
+        targetSdkVersion versions.android.targetSdk
+        versionCode versions.project.code
+        versionName versions.project.name
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+
+    implementation deps.androidx.lifecycle
+    implementation deps.kotlin.stdlib
+    implementation deps.net.moshi
+    implementation deps.test.mockWebServer
+
+    testImplementation deps.test.junit
+    testImplementation deps.test.assertj
+
+    androidTestImplementation deps.test.assertj
+    androidTestImplementation deps.instrumented.runner
+    androidTestImplementation deps.instrumented.espressoCore
+}

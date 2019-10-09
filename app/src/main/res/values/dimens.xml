@@ -1,0 +1,5 @@
+<resources>
+    <dimen name="grid_full_4x">16dp</dimen>
+    <dimen name="grid_half_2x">8dp</dimen>
+    <dimen name="grid_qtr_1x">4dp</dimen>
+</resources>

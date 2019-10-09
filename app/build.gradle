@@ -1,0 +1,89 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion versions.android.compile
+    defaultConfig {
+        applicationId "com.walmart.labs.walmartlab"
+        minSdkVersion versions.android.minSdk
+        targetSdkVersion versions.android.targetSdk
+        versionCode versions.project.code
+        versionName versions.project.name
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
+
+        buildConfigField("String", "TEST_SERVER_DOMAIN", "\"https://mobile-tha-server.firebaseapp.com\"")
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        // For kotlin code gen during kapt
+        main.java.srcDirs += [file("$buildDir/generated/source/kaptKotlin/main")]
+    }
+    flavorDimensions 'testServer'
+    productFlavors {
+        mock {
+            dimension = 'testServer'
+        }
+        live {
+            dimension = 'testServer'
+        }
+    }
+}
+kapt {
+    generateStubs = true
+}
+androidExtensions {
+    experimental = true
+}
+
+dependencies {
+
+    implementation deps.kotlin.stdlib
+
+    implementation deps.androidx.appCompat
+    implementation deps.androidx.design
+    implementation deps.androidx.recyclerView
+    implementation deps.androidx.cardView
+    implementation deps.androidx.constraintLayout
+    implementation deps.androidx.lifecycle
+    implementation deps.androidx.paging
+    implementation deps.androidx.room
+    kapt deps.androidx.roomCompiler
+
+    implementation deps.ui.picasso
+
+    implementation deps.debugging.stetho
+    implementation deps.net.moshi
+    kapt deps.net.moshiCodeGen
+    implementation deps.net.retrofit
+    implementation deps.net.retrofitMoshiConverter
+    implementation deps.net.retrofitCoroutineAdapter
+
+    implementation deps.coroutines.core
+    implementation deps.coroutines.android
+
+    testImplementation deps.test.junit
+    testImplementation deps.test.assertj
+    testImplementation project(":testutils")
+    testImplementation deps.test.mockWebServer
+    testImplementation deps.test.truth
+
+    androidTestImplementation project(":testutils")
+    androidTestImplementation deps.androidx.room
+    androidTestImplementation deps.test.assertj
+    androidTestImplementation deps.instrumented.runner
+    androidTestImplementation deps.instrumented.espressoCore
+    androidTestImplementation deps.instrumented.androidArchCore
+}

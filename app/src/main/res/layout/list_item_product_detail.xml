@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/productName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/grid_full_4x"
+                android:layout_marginStart="@dimen/grid_full_4x"
+                android:layout_marginTop="@dimen/grid_full_4x"
+                android:gravity="center"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Product Name Here" />
+
+
+            <RatingBar
+                android:id="@+id/productRating"
+                style="@style/Widget.AppCompat.RatingBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/grid_half_2x"
+                android:layout_marginTop="@dimen/grid_half_2x"
+                app:layout_constraintStart_toStartOf="@id/productName"
+                app:layout_constraintTop_toBottomOf="@id/productName" />
+
+            <TextView
+                android:id="@+id/productRatingText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/grid_full_4x"
+                android:layout_marginStart="@dimen/grid_full_4x"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                app:layout_constraintBottom_toBottomOf="@+id/productRating"
+                app:layout_constraintStart_toEndOf="@+id/productRating"
+                app:layout_constraintTop_toTopOf="@+id/productRating"
+                app:layout_constraintVertical_bias="0.43"
+                tools:text="51" />
+
+            <ImageView
+                android:id="@+id/productImage"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintWidth_percent=".5"
+                android:layout_marginTop="@dimen/grid_half_2x"
+                android:background="@drawable/ic_error_outline_black_24dp"
+                android:minWidth="200dp"
+                app:layout_constraintDimensionRatio="1:1"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/productRating" />
+
+            <TextView
+                android:id="@+id/productInStock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/grid_half_2x"
+                android:layout_marginTop="@dimen/grid_half_2x"
+                app:layout_constraintEnd_toEndOf="@+id/productName"
+                app:layout_constraintTop_toBottomOf="@+id/productImage"
+                app:layout_constraintVertical_bias="1.0"
+                tools:text="@string/in_stock" />
+
+            <TextView
+                android:id="@+id/productPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/grid_half_2x"
+                android:layout_marginTop="@dimen/grid_half_2x"
+                app:layout_constraintEnd_toStartOf="@+id/productInStock"
+                app:layout_constraintTop_toBottomOf="@+id/productImage"
+                tools:text="$999.99" />
+
+
+            <TextView
+                android:id="@+id/productShortDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/grid_full_4x"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textAlignment="viewStart"
+                android:layout_marginTop="@dimen/grid_half_2x"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/productPrice"
+                tools:text="@string/tools_long_description" />
+
+            <View
+                android:id="@+id/about_divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/grid_half_2x"
+                app:layout_constraintTop_toBottomOf="@+id/productShortDescription" />
+
+            <TextView
+                android:id="@+id/about_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/grid_qtr_1x"
+                android:layout_marginStart="@dimen/grid_full_4x"
+                android:layout_marginTop="@dimen/grid_half_2x"
+                android:text="@string/about_this_item"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/about_divider" />
+
+            <TextView
+                android:id="@+id/productLongDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/grid_full_4x"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textAlignment="viewStart"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/about_label"
+                tools:text="@string/tools_long_description" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/addToCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:layout_margin="@dimen/grid_half_2x"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/productRating"
+        tools:text="@string/add_to_cart"/>
+</LinearLayout>

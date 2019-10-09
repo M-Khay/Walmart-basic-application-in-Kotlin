@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">WalmartLab</string>
+    <string name="title_walmart_labs">WalmartLabs</string>
+    <string name="action_settings">Settings</string>
+    <string name="empty_list">Failed to load products, check network connection.</string>
+    <string name="tools_long_description">Measured fer yer chains smartly reef sails poop deck plunder cable brig salmagundi Spanish Main. Tender bilge water Pieces of Eight holystone long boat Jack Tar galleon provost Davy Jones\' Locker.  Gaff Buccaneer grog interloper fluke man-of-war transom brigantine driver. Lateen sail lugsail reef sails Plate Fleet jury mast cutlass galleon driver chandler.  Jack Ketch chantey tack landlubber or just lubber gangway quarterdeck plunder gangplank broadside. Scuttle brig chantey warp log jolly boat hempen halter spirits interloper.  Cable square-rigged belay aft cutlass warp holystone Spanish Main gun. Deadlights Davy Jones\' Locker Gold Road execution dock overhaul gangplank parley hempen halter sutler.</string>
+    <string name="about_this_item">About This Item</string>
+    <string name="add_to_cart">Add To Cart: %s</string>
+    <string name="cont_desc_product_image">Image of product, %s</string>
+    <string name="added_to_card">Item Added To Card!</string>
+    <string name="in_stock">In Stock</string>
+    <string name="out_of_stock">Out Of Stock</string>
+    <string name="rating_text">%d Reviews</string>
+</resources>
